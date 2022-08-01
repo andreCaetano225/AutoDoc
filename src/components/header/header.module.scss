@@ -8,4 +8,23 @@
         width: 200px;
         height: 200px;
     }
+
+   div{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+     a{
+        height: 24px;
+        width: 70px;
+        background-color: rgba(81, 132, 209, 0.615);
+        text-align: center;
+        border-radius: 3px;
+
+        &:hover{
+            background-color: rgba(57, 109, 186, 0.615);
+        }
+     }
+   }
 }
