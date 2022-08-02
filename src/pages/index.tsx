@@ -17,9 +17,6 @@ const Home: NextPage = () => {
   const dispatch = useDispatch();
 
 
-
-
-
   return (
     <div className={styles.container}>
       <ContentItems
@@ -31,7 +28,10 @@ const Home: NextPage = () => {
         altIcon={result?.weather[0].description}
       />
 
-      <button onClick={() => dispatch({ type: "ADD_TEMP", result })}>ReduxTest</button>
+      <button onClick={() => {
+        alert("Min/Máx tá mostrando no console assim como explicado no README")
+        dispatch({ type: "ADD_TEMP", result })
+      }}>Mostrar Min/Máx</button>
     </div>
   )
 }

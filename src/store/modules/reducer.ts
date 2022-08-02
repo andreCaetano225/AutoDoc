@@ -1,4 +1,10 @@
-export default function cart(state, action) {
+export default function temp(state: any = [], action: any) {
   console.log(action);
-  return [];
+
+  switch (action.type) {
+    case "ADD_TEMP":
+      return [...state, action.result];
+    default:
+      return state;
+  }
 }
