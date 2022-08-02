@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ContentItems } from '../components/contentItems'
 import { ResultApi } from '../interface/result'
 import { api } from '../services/api'
+import { connect, useDispatch } from 'react-redux'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
@@ -12,6 +13,12 @@ const Home: NextPage = () => {
     api(-22.9035, -43.2096).get("").then(res => setResult(res.data))
     console.log(result)
   }, [])
+
+  const dispatch = useDispatch();
+
+
+
+
 
   return (
     <div className={styles.container}>
@@ -23,8 +30,10 @@ const Home: NextPage = () => {
         imgIcon={result?.weather[0].icon}
         altIcon={result?.weather[0].description}
       />
+
+      <button onClick={() => dispatch({ type: "ADD_TEMP", result })}>ReduxTest</button>
     </div>
   )
 }
 
-export default Home
+export default connect()(Home);
